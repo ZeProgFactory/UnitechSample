@@ -33,7 +33,7 @@ namespace ZPF
          mScanManager.EnableAllSymbologies(true);
 
          // Call this method to start decoding. 
-         mScanManager.StartDecode();
+         // mScanManager.StartDecode();
       }
 
       public static bool CloseScanner()

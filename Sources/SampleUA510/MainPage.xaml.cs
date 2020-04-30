@@ -22,8 +22,6 @@ namespace SampleUA510
       {
          var listView = (sender as ListView);
 
-         //var lastItem = listView.ItemsSource.OfType<NameValue>().Last();
-
          var lastItem = UnitechViewModel.Current.LastScans.LastOrDefault();
          listView.ScrollTo(lastItem, ScrollToPosition.MakeVisible, true);
       }

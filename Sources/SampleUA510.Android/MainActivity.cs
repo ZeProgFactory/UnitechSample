@@ -26,6 +26,21 @@ namespace SampleUA510.Droid
 
          base.OnCreate(savedInstanceState);
 
+         // - - -  - - - 
+
+         if (Xamarin.Forms.Device.Idiom == Xamarin.Forms.TargetIdiom.Phone || Xamarin.Forms.Device.Idiom == Xamarin.Forms.TargetIdiom.Unsupported)
+         {
+            // layout views vertically
+            this.RequestedOrientation = ScreenOrientation.Portrait;
+         }
+         else
+         {
+            // layout views horizontally
+            this.RequestedOrientation = ScreenOrientation.Sensor;
+         };
+
+         // - - -  - - - 
+
          Xamarin.Essentials.Platform.Init(this, savedInstanceState);
          global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
 
@@ -56,46 +71,20 @@ namespace SampleUA510.Droid
          base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
       }
 
-      protected override void OnStart()
-      {
-         base.OnStart();
-      }
-
-      protected override void OnDestroy()
-      {
-         //if (AnalyticsHelper.DeviceInfo.DM.Contains("CASIO"))
-         {
-            // Turn off the power for the bar code reader. 
-            // System.Diagnostics.Debug.WriteLine($"CloseScanner {mScanManager.CloseScanner()}");
-         };
-
-         base.OnDestroy();
-      }
-
-
       // https://docs.microsoft.com/en-us/xamarin/android/app-fundamentals/broadcast-receivers
 
       [BroadcastReceiver(Name = "com.ute.eu.ScanResultReceiver", Enabled = true)]
-      // [BroadcastReceiver(Enabled = true)]
       [IntentFilter(new[] { ScanManager.ActionDecode })]
       public class ScanResultReceiver : BroadcastReceiver
       {
          public override void OnReceive(Context context, Intent intent)
          {
-            //MainActivity inst = Instance();
-
-            //if (inst != null)
-            //   inst.SetViewText("");
-
             byte[] rawData = intent.GetByteArrayExtra(ScanManager.DecodeDataTag);
             int Length = intent.GetIntExtra(ScanManager.BarcodeLengthTag, 0);
             byte Symbology = (byte)intent.GetByteExtra(ScanManager.BarcodeTypeTag, (sbyte)0);
             string Data = System.Text.Encoding.UTF8.GetString(rawData);
 
             UnitechViewModel.Current.NewBarcode(Data, Length, Symbology, rawData);
-
-            //if (inst != null)
-            //   inst.SetViewText(result);
          }
       };
    }
