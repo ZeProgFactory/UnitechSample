@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
+using ZPF;
 
 namespace SampleUA510
 {
@@ -13,11 +10,22 @@ namespace SampleUA510
    [DesignTimeVisible(false)]
    public partial class MainPage : ContentPage
    {
+
       public MainPage()
       {
          BindingContext = UnitechViewModel.Current;
 
          InitializeComponent();
+      }
+
+      private void itemAppearing(object sender, ItemVisibilityEventArgs e)
+      {
+         var listView = (sender as ListView);
+
+         //var lastItem = listView.ItemsSource.OfType<NameValue>().Last();
+
+         var lastItem = UnitechViewModel.Current.LastScans.LastOrDefault();
+         listView.ScrollTo(lastItem, ScrollToPosition.MakeVisible, true);
       }
    }
 }

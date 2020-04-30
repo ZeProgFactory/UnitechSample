@@ -1,4 +1,5 @@
-﻿using System;
+﻿using System.Collections.ObjectModel;
+using Xamarin.Forms;
 using ZPF;
 
 public class UnitechViewModel : BaseViewModel
@@ -58,6 +59,10 @@ public class UnitechViewModel : BaseViewModel
 
    // - -  - -  - -  - -  - -  - -  - -  - -  - -  - -  - -  - -  - -  - -  -
 
+   public ObservableCollection<NameValue> LastScans { get; set; } = new ObservableCollection<NameValue>();
+
+   // - -  - -  - -  - -  - -  - -  - -  - -  - -  - -  - -  - -  - -  - -  -
+
    public string Data { get => _Data; set => SetField(ref _Data, value); }
    string _Data = "";
 
@@ -85,6 +90,8 @@ public class UnitechViewModel : BaseViewModel
       Length = length;
       Symbology = (USymbology)(symbology);
       RAWData = rawData;
+
+      LastScans.Add(new NameValue { Name = Symbology.ToString(), Value = data });
 
       Xamarin.Essentials.Vibration.Vibrate(100);
    }
