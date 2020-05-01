@@ -14,14 +14,17 @@
          <RowDefinition Height="auto"/>
       </Grid.RowDefinitions>
 
-      <Label Margin="30" HorizontalOptions="Center" Text="Unitech Sample" FontSize="36" FontAttributes="Bold" />
+      <BoxView Margin="30,30,30,0" BackgroundColor="LightGray" CornerRadius="10" />
 
-      <ListView Grid.Row="1" Margin="30" ItemsSource="{Binding LastScans}" ItemAppearing="itemAppearing"  >
+      <Label Margin="30,30,30,0" HorizontalOptions="Center" Text="Unitech Sample" FontSize="36" FontAttributes="Bold" />
+
+      <BoxView Grid.Row="1" Margin="30,30,30,0" BackgroundColor="LightGray" CornerRadius="10" />
+      <ListView Grid.Row="1" Margin="40,40,40,10" ItemsSource="{Binding LastScans}" ItemAppearing="itemAppearing" >
          <ListView.ItemTemplate>
             <DataTemplate>
                <ViewCell>
                   <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
-                     <Label Text="{Binding Name}" Margin="0,0,20,0" VerticalTextAlignment="Center"/>
+                     <Label Text="{Binding Name}" Margin="0,0,10,0" VerticalTextAlignment="Center"/>
                      <Label Text="{Binding Value}" FontAttributes="Bold" VerticalTextAlignment="Center"/>
                   </StackLayout>
                </ViewCell>
@@ -29,13 +32,28 @@
          </ListView.ItemTemplate>
       </ListView>
 
-      <StackLayout Grid.Row="2" HorizontalOptions="Center" VerticalOptions="Center" >
+      <BoxView Grid.Row="2"  Margin="30,30,30,0" BackgroundColor="LightGray" CornerRadius="10" />
+
+      <StackLayout Grid.Row="2" Margin="40,40,40,10" HorizontalOptions="Center" VerticalOptions="Center"  >
 
          <Label Margin="30,10,30,5" Text="{Binding Data}" FontAttributes="Bold" FontSize="16" HorizontalTextAlignment="Center"  />
          <Label Margin="30,5,30,5" Text="{Binding Length,StringFormat='length={0}'}" HorizontalTextAlignment="Center"  />
-         <Label Margin="30,5,30,10" Text="{Binding Symbology}" FontAttributes="Bold" HorizontalTextAlignment="Center"  />
+
+         <StackLayout Margin="30,5,30,10" Orientation="Horizontal" HorizontalOptions="Center">
+            <Label Text="{Binding Symbology}" Margin="0,0,5,0" FontAttributes="Bold" />
+            <Label Text="{Binding nSymbology,StringFormat=' ({0})'}" FontAttributes="Bold" />
+         </StackLayout>
 
       </StackLayout>
 
+      <BoxView Grid.Row="3"  Margin="30" BackgroundColor="LightGray" CornerRadius="10" />
+
+      <StackLayout Grid.Row="3" Margin="40" HorizontalOptions="Center" VerticalOptions="Center" Orientation="Horizontal"  >
+
+         <Label Text="EA502" VerticalTextAlignment="Center"/>
+         <Switch OnColor="Gray"   IsToggled="{Binding IsEA510}"/>
+         <Label Text="EA510" VerticalTextAlignment="Center"/>
+
+      </StackLayout>
    </Grid>
 </ContentPage>
