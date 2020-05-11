@@ -19,6 +19,11 @@ namespace ZPF
 
       public static void initScan()
       {
+         if (Xamarin.Essentials.DeviceInfo.Manufacturer != "Unitech")
+         {
+            return;
+         };
+
          mScanManager = new ScanManager();
 
          // Turn on the power for the bar code reader. 
@@ -36,8 +41,17 @@ namespace ZPF
          // mScanManager.StartDecode();
       }
 
+      /// <summary>
+      /// Turn off the power for the bar code reader. 
+      /// </summary>
+      /// <returns></returns>
       public static bool CloseScanner()
       {
+         if (Xamarin.Essentials.DeviceInfo.Manufacturer != "Unitech")
+         {
+            return true;
+         };
+
          // Turn off the power for the bar code reader. 
          return mScanManager.CloseScanner();
       }
