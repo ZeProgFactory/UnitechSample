@@ -119,11 +119,11 @@ public class UnitechViewModel : BaseViewModel
       }
    }
 
-#if DEBUG
+//#if DEBUG
    bool _IsEA510 = true;
-#else
-   bool _IsEA510 = false;
-#endif
+//#else
+//   bool _IsEA510 = false;
+//#endif
 
    // - -  - -  - -  - -  - -  - -  - -  - -  - -  - -  - -  - -  - -  - -  -
 

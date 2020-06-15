@@ -1,15 +1,10 @@
-﻿using System;
-
+﻿
 using Android.App;
-using Android.Content.PM;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
-using Android.OS;
-
-using Android.Device.Scanner;
 using Android.Content;
+using Android.Content.PM;
 using Android.Device;
+using Android.OS;
+using Android.Runtime;
 using ZPF;
 
 namespace SampleUA510.Droid
