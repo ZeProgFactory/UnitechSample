@@ -64,6 +64,20 @@ namespace ZPF
          return true;
       }
 
+      public static bool EnableAllEANs()
+      {
+         if (Xamarin.Essentials.DeviceInfo.Manufacturer != "Unitech")
+         {
+            return true;
+         };
+
+         mScanManager.EnableAllSymbologies(false);
+         mScanManager.EnableSymbology(Symbology.Ean13, true);
+         mScanManager.EnableSymbology(Symbology.Ean8, true);
+         mScanManager.EnableSymbology(Symbology.Code128, true);
+
+         return true;
+      }
 
       /// <summary>
       /// Turn on the power for the bar code reader. 

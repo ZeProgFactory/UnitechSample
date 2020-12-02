@@ -51,7 +51,7 @@
       <StackLayout Grid.Row="3" Margin="40" HorizontalOptions="Center" VerticalOptions="Center" Orientation="Horizontal"  >
 
          <Label Text="EA502" VerticalTextAlignment="Center"/>
-         <Switch OnColor="Gray"   IsToggled="{Binding IsEA510}"/>
+         <Switch OnColor="Gray"   IsToggled="{Binding IsEA510}" IsEnabled="False"/>
          <Label Text="EA510" VerticalTextAlignment="Center"/>
 
       </StackLayout>

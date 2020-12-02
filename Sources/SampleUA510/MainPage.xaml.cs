@@ -2,6 +2,7 @@
 using System.Linq;
 using Xamarin.Forms;
 using ZPF;
+using ZPF.XF;
 
 namespace SampleUA510
 {
@@ -16,6 +17,16 @@ namespace SampleUA510
          BindingContext = UnitechViewModel.Current;
 
          InitializeComponent();
+
+         DependencyService.Get<IScanner>().OpenScanner();
+         // DependencyService.Get<IScanner>().EnableAllEANs();
+      }
+
+      protected override void OnDisappearing()
+      {
+         DependencyService.Get<IScanner>().CloseScanner();
+
+         base.OnDisappearing();
       }
 
       private void itemAppearing(object sender, ItemVisibilityEventArgs e)
