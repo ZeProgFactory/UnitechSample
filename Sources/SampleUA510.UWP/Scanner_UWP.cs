@@ -12,6 +12,11 @@ namespace ZPF.XF
          return true;
       }
 
+      public bool EnableAllEANs()
+      {
+         return true;
+      }
+
       public bool EnableAllSymbologies()
       {
          return true;
