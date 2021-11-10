@@ -20,7 +20,11 @@ namespace ZPF
 
       public static void initScan()
       {
-         if (Xamarin.Essentials.DeviceInfo.Manufacturer != "Unitech")
+#if SCAN_WEDGE
+         return;
+#endif
+
+         if (!Xamarin.Essentials.DeviceInfo.Manufacturer.ToLower().Contains("unitech"))
          {
             return;
          };
@@ -42,7 +46,11 @@ namespace ZPF
 
       public static bool EnableAllSymbologies()
       {
-         if (Xamarin.Essentials.DeviceInfo.Manufacturer != "Unitech")
+#if SCAN_WEDGE
+         return true;
+#endif
+
+         if (!Xamarin.Essentials.DeviceInfo.Manufacturer.ToLower().Contains("unitech"))
          {
             return true;
          };
@@ -53,7 +61,11 @@ namespace ZPF
 
       public static bool EnableEAN13Only()
       {
-         if (Xamarin.Essentials.DeviceInfo.Manufacturer != "Unitech")
+#if SCAN_WEDGE
+         return true;
+#endif
+
+         if (!Xamarin.Essentials.DeviceInfo.Manufacturer.ToLower().Contains("unitech"))
          {
             return true;
          };
@@ -66,7 +78,11 @@ namespace ZPF
 
       public static bool EnableAllEANs()
       {
-         if (Xamarin.Essentials.DeviceInfo.Manufacturer != "Unitech")
+#if SCAN_WEDGE
+         return true;
+#endif
+
+         if (!Xamarin.Essentials.DeviceInfo.Manufacturer.ToLower().Contains("unitech"))
          {
             return true;
          };
@@ -79,13 +95,18 @@ namespace ZPF
          return true;
       }
 
+
       /// <summary>
       /// Turn on the power for the bar code reader. 
       /// </summary>
       /// <returns></returns>
       public static bool OpenScanner()
       {
-         if (Xamarin.Essentials.DeviceInfo.Manufacturer != "Unitech")
+#if SCAN_WEDGE
+         return true;
+#endif
+
+         if (!Xamarin.Essentials.DeviceInfo.Manufacturer.ToLower().Contains("unitech"))
          {
             return true;
          };
@@ -100,7 +121,11 @@ namespace ZPF
       /// <returns></returns>
       public static bool CloseScanner()
       {
-         if (Xamarin.Essentials.DeviceInfo.Manufacturer != "Unitech")
+#if SCAN_WEDGE
+         return true;
+#endif
+
+         if (!Xamarin.Essentials.DeviceInfo.Manufacturer.ToLower().Contains("unitech"))
          {
             return true;
          };
