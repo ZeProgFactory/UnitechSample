@@ -100,7 +100,7 @@
       <Name>JarBinding</Name>
     </ProjectReference>
     <ProjectReference Include="..\SampleUA510\SampleUA510.csproj">
-      <Project>{8EF2761F-8903-48A9-99F7-3911D6D19871}</Project>
+      <Project>{470A9B52-8C7A-4AC7-A98E-0A96BC4E2FC8}</Project>
       <Name>SampleUA510</Name>
     </ProjectReference>
   </ItemGroup>
