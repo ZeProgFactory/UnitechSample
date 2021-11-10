@@ -41,7 +41,7 @@ namespace SampleUA510.Droid
 
          // - - -  - - - 
 
-         if (Xamarin.Essentials.DeviceInfo.Manufacturer == "Unitech")
+         if (Xamarin.Essentials.DeviceInfo.Manufacturer.ToLower().Contains("unitech"))
          {
             UnitechHelper.initScan();
             receiver = new ScanResultReceiver();
@@ -56,7 +56,7 @@ namespace SampleUA510.Droid
       {
          base.OnResume();
 
-         if (Xamarin.Essentials.DeviceInfo.Manufacturer == "Unitech")
+         if (Xamarin.Essentials.DeviceInfo.Manufacturer.ToLower().Contains("unitech"))
          {
             RegisterReceiver(receiver, new IntentFilter(ScanManager.ActionDecode));
          };
@@ -64,7 +64,7 @@ namespace SampleUA510.Droid
 
       protected override void OnPause()
       {
-         if (Xamarin.Essentials.DeviceInfo.Manufacturer == "Unitech")
+         if (Xamarin.Essentials.DeviceInfo.Manufacturer.ToLower().Contains("unitech"))
          {
             UnregisterReceiver(receiver);
          };
