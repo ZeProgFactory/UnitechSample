@@ -18,6 +18,8 @@ namespace SampleUA510
 
          InitializeComponent();
 
+         lManufacturer.Text = $"'{Xamarin.Essentials.DeviceInfo.Manufacturer}'";
+
          DependencyService.Get<IScanner>().OpenScanner();
          // DependencyService.Get<IScanner>().EnableAllEANs();
       }
